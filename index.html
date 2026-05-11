@@ -6,11 +6,11 @@
 <title>Análise Contábil — Watergate / American Airlines</title>
 <style>
   :root {
-    --paper:        #ede2c8;  /* papel pardo claro */
+    --paper:        #ede2c8;
     --paper-dim:    #d9c89e;
-    --paper-line:   #b0c4d4;  /* linha azul de pauta */
-    --paper-margin: #c8615a;  /* linha vermelha vertical */
-    --cork:         #ac8257;  /* fundo cortiça */
+    --paper-line:   #b0c4d4;
+    --paper-margin: #c8615a;
+    --cork:         #ac8257;
     --cork-dark:    #876341;
     --ink:          #1e1c18;
     --ink-faded:    #6b6052;
@@ -27,7 +27,6 @@
     min-height: 100vh;
     overflow-x: hidden;
   }
-  /* Textura de cortiça */
   body::before {
     content: "";
     position: fixed; inset: 0;
@@ -47,27 +46,21 @@
     pointer-events: none;
     z-index: 1;
   }
-
   .app {
     position: relative; z-index: 2;
     max-width: 760px;
     margin: 0 auto;
     padding: 24px 16px 80px;
   }
-
-  /* Papel pautado (estilo caderno) */
   .screen {
     background: var(--paper);
     background-image:
       linear-gradient(transparent, transparent 31px, var(--paper-line) 31px, var(--paper-line) 32px),
       linear-gradient(90deg, transparent 38px, var(--paper-margin) 38px, var(--paper-margin) 39px, transparent 39px);
     background-size: 100% 32px, 100% 100%;
-    background-attachment: local, local;
     border: 1px solid rgba(120, 90, 50, 0.35);
     border-radius: 2px;
-    box-shadow:
-      0 18px 35px var(--shadow),
-      inset 0 0 80px rgba(180, 145, 95, 0.15);
+    box-shadow: 0 18px 35px var(--shadow), inset 0 0 80px rgba(180, 145, 95, 0.15);
     padding: 30px 22px 30px 56px;
     position: relative;
     animation: drop 0.55s cubic-bezier(.2,.8,.2,1);
@@ -78,12 +71,9 @@
     from { opacity: 0; transform: translateY(-12px) rotate(-0.5deg); }
     to { opacity: 1; transform: translateY(0) rotate(0); }
   }
-
-  /* Pushpins nos cantos do papel */
   .screen::before, .screen::after {
     content: "";
-    position: absolute;
-    top: -8px;
+    position: absolute; top: -8px;
     width: 22px; height: 22px;
     border-radius: 50%;
     background: radial-gradient(circle at 35% 35%, #ff8082 0%, var(--red) 50%, var(--red-dim) 100%);
@@ -91,9 +81,7 @@
     z-index: 3;
   }
   .screen::before { left: 14px; }
-  .screen::after { right: 14px; }
-
-  /* Header com nº dossiê */
+  .screen::after  { right: 14px; }
   .header-row {
     display: flex; justify-content: space-between; align-items: baseline;
     border-bottom: 1px dashed var(--ink-faded);
@@ -108,141 +96,98 @@
     font-weight: bold; font-size: 11px; letter-spacing: 2px;
     background: rgba(255,255,255,0.4);
   }
-
   h1.title {
     font-family: 'Georgia', 'Times', serif;
-    font-size: 28px;
-    color: var(--ink);
-    line-height: 1.15;
-    margin-bottom: 6px;
-    letter-spacing: -0.4px;
+    font-size: 28px; color: var(--ink);
+    line-height: 1.15; margin-bottom: 6px; letter-spacing: -0.4px;
   }
   .subtitle {
     font-family: 'Courier New', monospace;
-    color: var(--red);
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 22px;
-    font-weight: bold;
+    color: var(--red); font-size: 11px;
+    letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 22px; font-weight: bold;
   }
   .lead {
     font-family: 'Georgia', serif;
-    color: var(--ink);
-    font-size: 15px;
-    line-height: 1.55;
-    margin-bottom: 16px;
+    color: var(--ink); font-size: 15px; line-height: 1.55; margin-bottom: 16px;
   }
   .lead em { color: var(--red); font-style: italic; }
   .lead strong { color: var(--ink); font-weight: bold; background: rgba(252, 232, 110, 0.6); padding: 0 3px; }
-
-  /* Fita vermelha de destaque */
   .red-tape {
     display: inline-block;
-    background: var(--red);
-    color: var(--paper);
+    background: var(--red); color: var(--paper);
     padding: 7px 14px;
     font-family: 'Courier New', monospace;
-    font-size: 12px;
-    letter-spacing: 2.5px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transform: rotate(-2deg);
-    margin-bottom: 18px;
+    font-size: 12px; letter-spacing: 2.5px;
+    font-weight: bold; text-transform: uppercase;
+    transform: rotate(-2deg); margin-bottom: 18px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.25);
   }
-
   .btn {
     display: inline-block;
-    background: var(--red);
-    color: var(--paper);
-    border: none;
-    padding: 13px 22px;
+    background: var(--red); color: var(--paper);
+    border: none; padding: 13px 22px;
     font-family: 'Courier New', monospace;
-    font-size: 13px;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    cursor: pointer;
-    border-radius: 2px;
-    transition: all 0.2s;
-    width: 100%;
-    font-weight: bold;
+    font-size: 13px; letter-spacing: 2.5px;
+    text-transform: uppercase; cursor: pointer;
+    border-radius: 2px; transition: all 0.2s;
+    width: 100%; font-weight: bold;
     box-shadow: 0 4px 10px rgba(0,0,0,0.25);
   }
   .btn:hover { background: var(--red-dim); transform: translateY(-1px); box-shadow: 0 8px 14px rgba(0,0,0,0.3); }
   .btn:active { transform: translateY(0); }
-
   .progress-bar {
     height: 4px; background: rgba(0,0,0,0.1); border-radius: 2px;
     margin-bottom: 22px; overflow: hidden;
   }
   .progress-fill {
-    height: 100%; background: linear-gradient(90deg, var(--red), var(--paper-margin));
+    height: 100%;
+    background: linear-gradient(90deg, var(--red), var(--paper-margin));
     transition: width 0.5s ease;
   }
-
   .question {
     font-family: 'Georgia', serif;
-    font-size: 17px;
-    color: var(--ink);
-    line-height: 1.4;
-    margin-bottom: 18px;
-    font-weight: bold;
+    font-size: 17px; color: var(--ink);
+    line-height: 1.4; margin-bottom: 18px; font-weight: bold;
   }
   .question-context {
     font-size: 11px; color: var(--red);
     letter-spacing: 2px; text-transform: uppercase;
     margin-bottom: 6px;
-    font-family: 'Courier New', monospace;
-    font-weight: bold;
+    font-family: 'Courier New', monospace; font-weight: bold;
   }
-
   .options { display: flex; flex-direction: column; gap: 8px; }
   .option {
     background: rgba(255, 255, 255, 0.4);
     border: 1px solid var(--ink-faded);
     color: var(--ink);
-    padding: 14px 16px;
-    cursor: pointer;
-    text-align: left;
-    font-family: 'Georgia', serif;
-    font-size: 14px;
-    line-height: 1.45;
-    border-radius: 1px;
-    transition: all 0.2s;
-    position: relative;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 14px 16px; cursor: pointer; text-align: left;
+    font-family: 'Georgia', serif; font-size: 14px; line-height: 1.45;
+    border-radius: 1px; transition: all 0.2s;
+    position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
   .option:hover {
     background: rgba(252, 232, 110, 0.6);
-    border-color: var(--ink);
-    transform: translateX(3px);
+    border-color: var(--ink); transform: translateX(3px);
   }
   .option.selected {
     background: rgba(185, 30, 35, 0.18);
-    border-color: var(--red);
-    border-width: 2px;
+    border-color: var(--red); border-width: 2px;
   }
   .option .marker {
     display: inline-block;
     width: 22px; height: 22px;
     border: 1.5px solid var(--ink);
-    border-radius: 50%;
-    margin-right: 12px;
-    text-align: center;
-    line-height: 19px;
-    font-size: 11px;
-    color: var(--ink);
+    border-radius: 50%; margin-right: 12px;
+    text-align: center; line-height: 19px;
+    font-size: 11px; color: var(--ink);
     vertical-align: middle;
-    font-family: 'Courier New', monospace;
-    font-weight: bold;
+    font-family: 'Courier New', monospace; font-weight: bold;
     background: rgba(255,255,255,0.7);
   }
   .option.selected .marker {
     background: var(--red); border-color: var(--red); color: var(--paper);
   }
-
-  /* Fluxo do dinheiro */
   .money-stage {
     position: relative; width: 100%; aspect-ratio: 16/9;
     background: linear-gradient(135deg, #f2e7ce 0%, #e0cea0 100%);
@@ -251,77 +196,50 @@
     box-shadow: inset 0 0 30px rgba(140,95,55,0.2);
   }
   svg.flow-svg { width: 100%; height: 100%; }
-
   .flag-card {
     background: var(--tape-yellow);
     border-left: 3px solid var(--red);
-    padding: 10px 12px;
-    margin-bottom: 8px;
-    font-size: 12px;
-    line-height: 1.5;
+    padding: 10px 12px; margin-bottom: 8px;
+    font-size: 12px; line-height: 1.5;
     box-shadow: 0 2px 5px rgba(0,0,0,0.15);
     transform: rotate(-0.4deg);
   }
   .flag-card:nth-child(even) { transform: rotate(0.5deg); }
   .flag-card strong { color: var(--ink); }
-  .flag-card .amount {
-    color: var(--red); font-weight: bold;
-    font-family: 'Georgia', serif; font-size: 15px;
-  }
-
-  /* Stat cards (cork board evidence cards) */
+  .flag-card .amount { color: var(--red); font-weight: bold; font-family: 'Georgia', serif; font-size: 15px; }
   .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 0; }
   .stat-card {
     background: #fff;
     border: 1px solid var(--ink-faded);
-    padding: 14px 8px;
-    text-align: center;
-    border-radius: 1px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    padding: 14px 8px; text-align: center;
+    border-radius: 1px; box-shadow: 0 3px 8px rgba(0,0,0,0.15);
     position: relative;
   }
   .stat-card::before {
-    content: "";
-    position: absolute; top: -7px; left: 50%; transform: translateX(-50%);
-    width: 12px; height: 12px;
-    border-radius: 50%;
+    content: ""; position: absolute; top: -7px; left: 50%; transform: translateX(-50%);
+    width: 12px; height: 12px; border-radius: 50%;
     background: radial-gradient(circle at 35% 35%, #ff8082, var(--red) 60%);
     box-shadow: 0 2px 4px rgba(0,0,0,0.4);
   }
   .stat-card .num {
-    font-family: 'Georgia', serif;
-    font-size: 26px;
-    color: var(--red);
-    font-weight: bold;
-    display: block;
-    line-height: 1;
+    font-family: 'Georgia', serif; font-size: 26px;
+    color: var(--red); font-weight: bold; display: block; line-height: 1;
   }
   .stat-card .label {
-    font-size: 9px;
-    letter-spacing: 1.5px;
-    color: var(--ink-faded);
-    text-transform: uppercase;
-    display: block;
-    margin-top: 6px;
-    line-height: 1.3;
+    font-size: 9px; letter-spacing: 1.5px;
+    color: var(--ink-faded); text-transform: uppercase;
+    display: block; margin-top: 6px; line-height: 1.3;
     font-family: 'Courier New', monospace;
   }
-
   .result-box {
     background: var(--tape-yellow);
     border: 1px solid rgba(140, 100, 30, 0.4);
-    padding: 16px;
-    margin-top: 16px;
-    border-radius: 1px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    padding: 16px; margin-top: 16px;
+    border-radius: 1px; box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     transform: rotate(-0.6deg);
   }
-  .result-box h3 {
-    color: var(--red); font-family: 'Georgia', serif;
-    font-size: 16px; margin-bottom: 8px;
-  }
+  .result-box h3 { color: var(--red); font-family: 'Georgia', serif; font-size: 16px; margin-bottom: 8px; }
   .result-box p { font-size: 13px; line-height: 1.55; color: var(--ink); }
-
   .footer-note {
     text-align: center; font-size: 10px;
     color: var(--ink-faded); letter-spacing: 2px;
@@ -331,7 +249,6 @@
   .tally { display: flex; justify-content: space-between; gap: 8px;
            font-size: 11px; color: var(--ink-faded); margin-top: 10px;
            font-family: 'Courier New', monospace; }
-
   .ethic-chip {
     display: inline-block; padding: 3px 10px;
     font-size: 10px; letter-spacing: 1.5px;
@@ -345,10 +262,10 @@
     padding: 6px 10px; transform: rotate(-2deg);
     font-size: 10px; letter-spacing: 2px;
     text-transform: uppercase; display: inline-block;
-    margin-bottom: 16px; font-family: 'Courier New', monospace;
+    margin-bottom: 16px;
+    font-family: 'Courier New', monospace;
     background: rgba(255,255,255,0.5);
   }
-
   @media (max-width: 480px) {
     h1.title { font-size: 22px; }
     .stat-card .num { font-size: 22px; }
@@ -359,7 +276,6 @@
 <body>
 <div class="app">
 
-  <!-- ABERTURA -->
   <section class="screen active" id="s-intro">
     <div class="header-row">
       <span>DOSSIÊ Nº 27-AA</span>
@@ -374,19 +290,15 @@
       (CREEP) — em uma rota contábil que passou pelo <em>Líbano</em> e pela <em>Suíça</em>.
     </p>
     <p class="lead">
-      Você foi convocado para investigar. Conseguirá identificar onde a <em>contabilidade</em> falhou
-      — e onde ela <em>foi feita para falhar</em>?
+      Você foi convocado para investigar. Conseguirá identificar onde a <em>contabilidade</em>
+      falhou — e onde ela <em>foi feita para falhar</em>?
     </p>
-    <button class="btn" onclick="goTo('s-q1')">Iniciar Investigação →</button>
+    <button class="btn" data-go="s-q1">Iniciar Investigação →</button>
     <div class="footer-note">Apresentação · 11 maio 2026</div>
   </section>
 
-  <!-- Q1 -->
   <section class="screen" id="s-q1">
-    <div class="header-row">
-      <span>PERGUNTA 1 DE 3</span>
-      <span class="stamp">CONFIDENCIAL</span>
-    </div>
+    <div class="header-row"><span>PERGUNTA 1 DE 3</span><span class="stamp">CONFIDENCIAL</span></div>
     <div class="progress-bar"><div class="progress-fill" style="width: 20%"></div></div>
     <div class="question-context">Identificação do dilema</div>
     <p class="question">A American Airlines registrou os US$ 55 mil como "comissões de agência de viagens" em conta no Líbano. Qual princípio contábil foi <em>diretamente</em> violado?</p>
@@ -399,126 +311,49 @@
     <div class="tally"><span id="tally-1">Aguardando resposta...</span></div>
   </section>
 
-  <!-- VISUALIZAÇÃO FLUXO -->
   <section class="screen" id="s-flow">
-    <div class="header-row">
-      <span>RECONSTITUIÇÃO · O CAMINHO</span>
-      <span class="stamp">CONFIDENCIAL</span>
-    </div>
+    <div class="header-row"><span>RECONSTITUIÇÃO · O CAMINHO</span><span class="stamp">CONFIDENCIAL</span></div>
     <div class="red-tape">Caminho do Dinheiro</div>
     <p class="question">Como os US$ 55 mil saíram do caixa da AA e chegaram ao CREEP:</p>
     <div class="money-stage">
       <svg class="flow-svg" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="3" result="b"/>
-            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
+          <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
         </defs>
-        <!-- Linhas de paralelo decorativas -->
         <g stroke="#b89870" stroke-width="0.5" opacity="0.5">
           <line x1="0" y1="112" x2="800" y2="112"/>
           <line x1="0" y1="225" x2="800" y2="225" stroke-width="0.8"/>
           <line x1="0" y1="337" x2="800" y2="337"/>
         </g>
-        <!-- Continentes -->
-        <path d="M50,150 Q80,120 130,130 L180,150 Q200,180 180,220 L150,260 Q110,270 80,250 Q40,220 50,150Z"
-              fill="#d2bfa0" stroke="#8c6f4a" stroke-width="1.5"/>
-        <path d="M340,140 Q380,120 430,140 L470,160 Q480,200 450,240 L420,250 Q380,240 360,210 Q330,180 340,140Z"
-              fill="#d2bfa0" stroke="#8c6f4a" stroke-width="1.5"/>
-        <path d="M540,160 Q580,150 620,180 L640,210 Q620,240 590,250 Q560,240 540,210 Q525,180 540,160Z"
-              fill="#d2bfa0" stroke="#8c6f4a" stroke-width="1.5"/>
-
-        <!-- 1. EUA NY -->
-        <g transform="translate(115, 195)">
-          <circle r="22" fill="#fceea5" stroke="#1e1c18" stroke-width="2"/>
-          <text y="6" fill="#b91e23" font-size="22" font-family="Georgia" font-weight="bold" text-anchor="middle">①</text>
-        </g>
-        <!-- 2. Líbano -->
-        <g transform="translate(440, 175)">
-          <circle r="22" fill="#fceea5" stroke="#1e1c18" stroke-width="2"/>
-          <text y="6" fill="#b91e23" font-size="22" font-family="Georgia" font-weight="bold" text-anchor="middle">②</text>
-        </g>
-        <!-- 3. Suíça (Europa) -->
-        <g transform="translate(385, 145)">
-          <circle r="22" fill="#fceea5" stroke="#1e1c18" stroke-width="2"/>
-          <text y="6" fill="#b91e23" font-size="22" font-family="Georgia" font-weight="bold" text-anchor="middle">③</text>
-        </g>
-        <!-- 4. CREEP DC -->
-        <g transform="translate(175, 275)">
-          <circle r="22" fill="#fceea5" stroke="#1e1c18" stroke-width="2"/>
-          <text y="6" fill="#b91e23" font-size="22" font-family="Georgia" font-weight="bold" text-anchor="middle">④</text>
-        </g>
-
-        <!-- Setas com path curvo -->
+        <path d="M50,150 Q80,120 130,130 L180,150 Q200,180 180,220 L150,260 Q110,270 80,250 Q40,220 50,150Z" fill="#d2bfa0" stroke="#8c6f4a" stroke-width="1.5"/>
+        <path d="M340,140 Q380,120 430,140 L470,160 Q480,200 450,240 L420,250 Q380,240 360,210 Q330,180 340,140Z" fill="#d2bfa0" stroke="#8c6f4a" stroke-width="1.5"/>
+        <path d="M540,160 Q580,150 620,180 L640,210 Q620,240 590,250 Q560,240 540,210 Q525,180 540,160Z" fill="#d2bfa0" stroke="#8c6f4a" stroke-width="1.5"/>
+        <g transform="translate(115, 195)"><circle r="22" fill="#fceea5" stroke="#1e1c18" stroke-width="2"/><text y="6" fill="#b91e23" font-size="22" font-family="Georgia" font-weight="bold" text-anchor="middle">①</text></g>
+        <g transform="translate(440, 175)"><circle r="22" fill="#fceea5" stroke="#1e1c18" stroke-width="2"/><text y="6" fill="#b91e23" font-size="22" font-family="Georgia" font-weight="bold" text-anchor="middle">②</text></g>
+        <g transform="translate(385, 145)"><circle r="22" fill="#fceea5" stroke="#1e1c18" stroke-width="2"/><text y="6" fill="#b91e23" font-size="22" font-family="Georgia" font-weight="bold" text-anchor="middle">③</text></g>
+        <g transform="translate(175, 275)"><circle r="22" fill="#fceea5" stroke="#1e1c18" stroke-width="2"/><text y="6" fill="#b91e23" font-size="22" font-family="Georgia" font-weight="bold" text-anchor="middle">④</text></g>
         <path d="M 137,195 Q 280,80 420,170" fill="none" stroke="#b91e23" stroke-width="3" stroke-dasharray="8 4" filter="url(#glow)"/>
         <path d="M 440,153 Q 420,120 385,128" fill="none" stroke="#b91e23" stroke-width="3" stroke-dasharray="8 4" filter="url(#glow)"/>
         <path d="M 365,160 Q 270,260 195,260" fill="none" stroke="#b91e23" stroke-width="3" stroke-dasharray="8 4" filter="url(#glow)"/>
-
-        <!-- Bandeiras -->
-        <g transform="translate(70, 220)">
-          <rect x="0" y="0" width="32" height="20" fill="#b91e23" stroke="#1e1c18" stroke-width="1"/>
-          <rect x="0" y="0" width="16" height="10" fill="#1a3a6b"/>
-          <text y="35" fill="#1e1c18" font-size="11" font-family="Courier New" font-weight="bold">EUA · NY</text>
-        </g>
-        <g transform="translate(440, 110)">
-          <rect x="0" y="0" width="32" height="20" fill="#b91e23" stroke="#1e1c18" stroke-width="1"/>
-          <rect x="0" y="6" width="32" height="8" fill="#fceea5"/>
-          <text y="35" fill="#1e1c18" font-size="11" font-family="Courier New" font-weight="bold">LÍBANO</text>
-        </g>
-        <g transform="translate(335, 85)">
-          <rect x="0" y="0" width="32" height="20" fill="#b91e23" stroke="#1e1c18" stroke-width="1"/>
-          <rect x="13" y="2" width="6" height="16" fill="#ffffff"/>
-          <rect x="6" y="8" width="20" height="4" fill="#ffffff"/>
-          <text y="35" fill="#1e1c18" font-size="11" font-family="Courier New" font-weight="bold">SUÍÇA</text>
-        </g>
-        <g transform="translate(130, 305)">
-          <rect x="0" y="0" width="32" height="20" fill="#b91e23" stroke="#1e1c18" stroke-width="1"/>
-          <rect x="0" y="0" width="16" height="10" fill="#1a3a6b"/>
-          <text y="35" fill="#1e1c18" font-size="11" font-family="Courier New" font-weight="bold">CREEP · DC</text>
-        </g>
-
-        <!-- Money symbol em movimento -->
-        <g>
-          <circle r="10" fill="#b91e23"/>
-          <text y="4" fill="#fceea5" font-size="11" font-weight="bold" text-anchor="middle">$</text>
-          <animateMotion dur="6s" repeatCount="indefinite">
-            <mpath href="#fullpath"/>
-          </animateMotion>
-        </g>
+        <g transform="translate(70, 220)"><rect x="0" y="0" width="32" height="20" fill="#b91e23" stroke="#1e1c18" stroke-width="1"/><rect x="0" y="0" width="16" height="10" fill="#1a3a6b"/><text y="35" fill="#1e1c18" font-size="11" font-family="Courier New" font-weight="bold">EUA · NY</text></g>
+        <g transform="translate(440, 110)"><rect x="0" y="0" width="32" height="20" fill="#b91e23" stroke="#1e1c18" stroke-width="1"/><rect x="0" y="6" width="32" height="8" fill="#fceea5"/><text y="35" fill="#1e1c18" font-size="11" font-family="Courier New" font-weight="bold">LÍBANO</text></g>
+        <g transform="translate(335, 85)"><rect x="0" y="0" width="32" height="20" fill="#b91e23" stroke="#1e1c18" stroke-width="1"/><rect x="13" y="2" width="6" height="16" fill="#ffffff"/><rect x="6" y="8" width="20" height="4" fill="#ffffff"/><text y="35" fill="#1e1c18" font-size="11" font-family="Courier New" font-weight="bold">SUÍÇA</text></g>
+        <g transform="translate(130, 305)"><rect x="0" y="0" width="32" height="20" fill="#b91e23" stroke="#1e1c18" stroke-width="1"/><rect x="0" y="0" width="16" height="10" fill="#1a3a6b"/><text y="35" fill="#1e1c18" font-size="11" font-family="Courier New" font-weight="bold">CREEP · DC</text></g>
         <path id="fullpath" d="M 137,195 Q 280,80 420,170 Q 420,150 385,128 Q 270,260 195,260" fill="none"/>
-
+        <g><circle r="10" fill="#b91e23"/><text y="4" fill="#fceea5" font-size="11" font-weight="bold" text-anchor="middle">$</text><animateMotion dur="6s" repeatCount="indefinite"><mpath href="#fullpath"/></animateMotion></g>
         <text x="400" y="30" fill="#841418" font-size="14" font-family="Georgia" font-weight="bold" font-style="italic" text-anchor="middle">US$ 55.000 · Watergate, 1972</text>
         <text x="400" y="425" fill="#6b6052" font-size="10" font-family="Courier New" text-anchor="middle" letter-spacing="2">REGISTRADO COMO "COMISSÕES DE VIAGEM"</text>
       </svg>
     </div>
-
-    <div class="flag-card">
-      <strong>① Origem</strong> · American Airlines (NY) — fundo corporativo<br>
-      <span class="amount">US$ 55.000</span> retirados do caixa
-    </div>
-    <div class="flag-card">
-      <strong>② Beirute, Líbano</strong> — agente intermediário fictício<br>
-      Registro: "<em>comissões a agência de viagens</em>"
-    </div>
-    <div class="flag-card">
-      <strong>③ Zurique, Suíça</strong> — conta bancária sigilosa<br>
-      Anonimato bancário · sem trilha de auditoria
-    </div>
-    <div class="flag-card">
-      <strong>④ Washington DC</strong> — CREEP (Comitê de Reeleição)<br>
-      Repasse em dinheiro vivo — destino final
-    </div>
-
-    <button class="btn" onclick="goTo('s-q2')">Continuar Análise →</button>
+    <div class="flag-card"><strong>① Origem</strong> · American Airlines (NY) — fundo corporativo<br><span class="amount">US$ 55.000</span> retirados do caixa</div>
+    <div class="flag-card"><strong>② Beirute, Líbano</strong> — agente intermediário fictício<br>Registro: "<em>comissões a agência de viagens</em>"</div>
+    <div class="flag-card"><strong>③ Zurique, Suíça</strong> — conta bancária sigilosa<br>Anonimato bancário · sem trilha de auditoria</div>
+    <div class="flag-card"><strong>④ Washington DC</strong> — CREEP (Comitê de Reeleição)<br>Repasse em dinheiro vivo — destino final</div>
+    <button class="btn" data-go="s-q2">Continuar Análise →</button>
   </section>
 
-  <!-- Q2 -->
   <section class="screen" id="s-q2">
-    <div class="header-row">
-      <span>PERGUNTA 2 DE 3</span>
-      <span class="stamp">CONFIDENCIAL</span>
-    </div>
+    <div class="header-row"><span>PERGUNTA 2 DE 3</span><span class="stamp">CONFIDENCIAL</span></div>
     <div class="progress-bar"><div class="progress-fill" style="width: 50%"></div></div>
     <div class="question-context">Responsabilidade profissional</div>
     <p class="question">George Spater (CEO da AA) confessou voluntariamente em 1973, antes que o SEC descobrisse. Pela ética profissional contábil, isso o exime de responsabilidade?</p>
@@ -531,42 +366,21 @@
     <div class="tally"><span id="tally-2">Aguardando resposta...</span></div>
   </section>
 
-  <!-- DADOS / IMPACTO -->
   <section class="screen" id="s-data">
-    <div class="header-row">
-      <span>PAINEL · IMPACTO SISTÊMICO</span>
-      <span class="stamp">CONFIDENCIAL</span>
-    </div>
+    <div class="header-row"><span>PAINEL · IMPACTO SISTÊMICO</span><span class="stamp">CONFIDENCIAL</span></div>
     <div class="red-tape">Efeito Cascata</div>
     <p class="question">A confissão da AA destravou uma onda de admissões corporativas:</p>
     <div class="stat-grid">
-      <div class="stat-card">
-        <span class="num">20+</span>
-        <span class="label">Empresas Fortune 500 confessaram contribuições ilegais</span>
-      </div>
-      <div class="stat-card">
-        <span class="num">US$ 60M</span>
-        <span class="label">Total arrecadado pelo CRP em 1972</span>
-      </div>
-      <div class="stat-card">
-        <span class="num">US$ 450K</span>
-        <span class="label">Hush money aos invasores</span>
-      </div>
+      <div class="stat-card"><span class="num">20+</span><span class="label">Empresas Fortune 500 confessaram contribuições ilegais</span></div>
+      <div class="stat-card"><span class="num">US$ 60M</span><span class="label">Total arrecadado pelo CRP em 1972</span></div>
+      <div class="stat-card"><span class="num">US$ 450K</span><span class="label">Hush money aos invasores</span></div>
     </div>
-    <p class="lead" style="font-size:13px;">
-      Da <em>Gulf Oil</em> à <em>3M</em>, da <em>Phillips Petroleum</em> à <em>Northrop</em> — todas
-      registravam os repasses como <strong>despesas operacionais legítimas</strong>. A contabilidade
-      foi a fachada que sustentou o crime político até a fissura na AA.
-    </p>
-    <button class="btn" onclick="goTo('s-q3')">Última Pergunta →</button>
+    <p class="lead" style="font-size:13px;">Da <em>Gulf Oil</em> à <em>3M</em>, da <em>Phillips Petroleum</em> à <em>Northrop</em> — todas registravam os repasses como <strong>despesas operacionais legítimas</strong>. A contabilidade foi a fachada que sustentou o crime político até a fissura na AA.</p>
+    <button class="btn" data-go="s-q3">Última Pergunta →</button>
   </section>
 
-  <!-- Q3 -->
   <section class="screen" id="s-q3">
-    <div class="header-row">
-      <span>PERGUNTA 3 DE 3</span>
-      <span class="stamp">CONFIDENCIAL</span>
-    </div>
+    <div class="header-row"><span>PERGUNTA 3 DE 3</span><span class="stamp">CONFIDENCIAL</span></div>
     <div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div>
     <div class="question-context">Aplicação no presente</div>
     <p class="question">Pensando no Brasil contemporâneo — quais mecanismos contábeis <em>hoje</em> tornariam o esquema da AA mais difícil de ocultar?</p>
@@ -574,4 +388,107 @@
       <button class="option" data-q="3" data-ans="a"><span class="marker">A</span>Sarbanes-Oxley (SOX) — controles internos certificados pelo CEO</button>
       <button class="option" data-q="3" data-ans="b"><span class="marker">B</span>FCPA — Foreign Corrupt Practices Act (1977)</button>
       <button class="option" data-q="3" data-ans="c"><span class="marker">C</span>Lei 12.846/2013 (Lei Anticorrupção Brasileira)</button>
-      <button class="option" data-q="3" data-ans="d"><span class="
+      <button class="option" data-q="3" data-ans="d"><span class="marker">D</span>Todas as anteriores — em camadas complementares</button>
+    </div>
+    <div class="tally"><span id="tally-3">Aguardando resposta...</span></div>
+  </section>
+
+  <section class="screen" id="s-result">
+    <div class="header-row"><span>ENCERRAMENTO DO DOSSIÊ</span><span class="stamp">ARQUIVADO</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width: 100%"></div></div>
+    <h1 class="title">O que a contabilidade nos ensina</h1>
+    <p class="subtitle">Obrigado pela participação</p>
+    <div class="result-box">
+      <h3>A primeira linha de defesa</h3>
+      <p>O caso é um marco porque <strong>foi a contabilidade — não a política — que rompeu o silêncio</strong>. A confissão de Spater catalisou o FCPA (1977), que inspirou a SOX (2002) e, no Brasil, a Lei Anticorrupção (2013). A ética profissional do contador é a primeira linha de defesa contra o abuso de poder.</p>
+    </div>
+    <div class="ethic-chip">Totalitarista</div>
+    <p class="lead" style="font-size:13px;">O CEO ordenou o lançamento sem consultar a base contábil — quebra do princípio da co-responsabilidade.</p>
+    <div class="ethic-chip">Utilitarista</div>
+    <p class="lead" style="font-size:13px;">A "boa intenção" política não compensou o dano sistêmico ao mercado e à confiança institucional.</p>
+    <div class="ethic-chip">Relativista</div>
+    <p class="lead" style="font-size:13px;">"Ajudar campanhas" era prática comum nos anos 1970 — porém foi exatamente essa relativização que o FCPA aboliu.</p>
+    <p class="footer-note" style="margin-top:24px;">Trabalho em grupo · Kaique, Leonam, Luiz Felipe, Rafael, Thiago<br>Ética Geral e Profissional · USP-FEA · 2026</p>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  var mem = {};
+  function getS(k){ try { return localStorage.getItem(k); } catch(e){ return mem[k] || null; } }
+  function setS(k,v){ try { localStorage.setItem(k,v); } catch(e){ mem[k]=v; } }
+
+  var answers = {}, tallyData = {"1":{},"2":{},"3":{}};
+  try { answers = JSON.parse(getS('aa-answers') || '{}'); } catch(e) {}
+  try {
+    var t = JSON.parse(getS('aa-tally') || '{"1":{},"2":{},"3":{}}');
+    if (t && typeof t === 'object') {
+      tallyData = t;
+      if (!tallyData["1"]) tallyData["1"] = {};
+      if (!tallyData["2"]) tallyData["2"] = {};
+      if (!tallyData["3"]) tallyData["3"] = {};
+    }
+  } catch(e) {}
+
+  function goTo(id){
+    var screens = document.querySelectorAll('.screen');
+    for (var i=0; i<screens.length; i++) screens[i].classList.remove('active');
+    var t = document.getElementById(id);
+    if (t) { t.classList.add('active'); window.scrollTo({top:0, behavior:'smooth'}); }
+    else { console.error('[Watergate] goTo: id nao encontrado', id); }
+  }
+  window.goTo = goTo;
+
+  function updateTally(q){
+    var data = tallyData[q] || {};
+    var total = 0;
+    for (var k in data) total += data[k];
+    var el = document.getElementById('tally-'+q);
+    if (!el) return;
+    if (total === 0) { el.textContent = 'Aguardando resposta...'; return; }
+    var parts = [];
+    for (var k2 in data) parts.push(k2.toUpperCase() + ':' + Math.round(100*data[k2]/total) + '%');
+    el.textContent = total + ' resposta(s) - ' + parts.join(' - ');
+  }
+
+  document.addEventListener('click', function(e){
+    var target = e.target;
+    var goBtn = target.closest ? target.closest('[data-go]') : null;
+    if (goBtn) {
+      e.preventDefault();
+      console.log('[Watergate] click data-go=', goBtn.getAttribute('data-go'));
+      goTo(goBtn.getAttribute('data-go'));
+      return;
+    }
+    var optBtn = target.closest ? target.closest('.option') : null;
+    if (optBtn) {
+      var q = optBtn.getAttribute('data-q');
+      var ans = optBtn.getAttribute('data-ans');
+      console.log('[Watergate] click option q='+q+' ans='+ans);
+      var sameQ = document.querySelectorAll('[data-q="'+q+'"]');
+      for (var i=0; i<sameQ.length; i++) sameQ[i].classList.remove('selected');
+      optBtn.classList.add('selected');
+      answers[q] = ans;
+      setS('aa-answers', JSON.stringify(answers));
+      tallyData[q][ans] = (tallyData[q][ans] || 0) + 1;
+      setS('aa-tally', JSON.stringify(tallyData));
+      updateTally(q);
+      setTimeout(function(){
+        if (q === '1') goTo('s-flow');
+        else if (q === '2') goTo('s-data');
+        else if (q === '3') goTo('s-result');
+      }, 700);
+    }
+  }, false);
+
+  function init(){
+    updateTally('1'); updateTally('2'); updateTally('3');
+    console.log('[Watergate-AA] script carregado - ' + new Date().toISOString());
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+</body>
+</html>
